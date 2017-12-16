@@ -1,0 +1,61 @@
+---
+layout:     post
+title:      跨域问题及服务端解决方法
+subtitle:   跨域
+date:       2017-12-16
+author:     susu
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - 跨域
+    - nginx配置
+---
+# 跨域问题
+
+## 定义
+```
+最简单的理解方法，就是前端像另外一个系统发起数据请求，而引起跨域问题。
+```
+
+## 测试方法
+
+可以在这个页面，修改请求地址完成测试
+
+http://www.runoob.com/try/try.php?filename=tryajax_get
+
+	xmlhttp.open("GET","http://pre-x.alibaba-inc.com/status.taobao",true);
+
+## 服务器端解决方法
+
+http://blog.csdn.net/andsionlee/article/details/53486210
+
+
+### nginx 配置文件
+
+```
+        location / {
+            include section_cross_domain.conf;
+            proxy_pass   http://127.0.0.1:7001;
+        }
+```
+
+### section_cross_domain.conf
+
+```
+if ($request_method = 'OPTIONS') {
+    add_header 'Access-Control-Allow-Origin' '*';
+    add_header 'Access-Control-Allow-Credentials' 'true';
+    add_header 'Access-Control-Allow-Methods' 'GET,PUT,POST,DELETE,OPTIONS';
+    add_header 'Access-Control-Allow-Headers' 'origin, x-csrftoken, content-type, accept, apitoken, istest, authorization';
+    return 204;
+}
+
+add_header 'Access-Control-Allow-Origin' '*';
+add_header 'Access-Control-Allow-Credentials' 'true';
+add_header 'Access-Control-Allow-Methods' 'GET,PUT,POST,DELETE,OPTIONS';
+add_header 'Access-Control-Allow-Headers' 'origin, x-csrftoken, content-type, accept, apitoken, istest, authorization';
+
+```
+
+
+
