@@ -18,6 +18,8 @@ ${port} : java 进程jmx 暴露的端口
 java -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=7776 -Djava.rmi.server.hostname=10.9.161.139 -jar /data/users/app/log-generator/target/log-generator.jar
 ```
 
+监控要求防火墙关闭或是放开指定端口，对于-Djava.rmi.server.hostname=${host_ip}不是必须设置（除非有多于一个的网卡和IP）
+
 
 # JConsole 连接（Mac 电脑）
 
