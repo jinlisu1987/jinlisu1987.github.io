@@ -1,11 +1,15 @@
 # java 进程启动参数配置
 
 -Dcom.sun.management.jmxremote.ssl=false 
+
 -Dcom.sun.management.jmxremote.authenticate=false 
+
 -Dcom.sun.management.jmxremote.port=${port} 
+
 -Djava.rmi.server.hostname=${host_ip}
 
 ${host_ip} : java 进程所在主机ip
+
 ${port} : java 进程jmx 暴露的端口
 
 示例:
