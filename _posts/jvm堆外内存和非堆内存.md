@@ -15,3 +15,8 @@
    ((sun.nio.ch.DirectBuffer)byteBuffer).cleaner().clean(); 
 
    参考: http://www.cnblogs.com/xing901022/p/5215458.html
+
+# 非堆内存
+  jvm 除了堆内存之外的内存，称之为非堆内存。
+  
+  https://www.cnblogs.com/duanxz/p/3520829.html
