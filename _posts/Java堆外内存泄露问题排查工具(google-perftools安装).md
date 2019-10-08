@@ -1,4 +1,3 @@
-###	测试机器: qabb-qa-skynet2
 ###	安装gcc
 	sudo yum -y install gcc make
 	sudo yum -y install gcc gcc-c++
